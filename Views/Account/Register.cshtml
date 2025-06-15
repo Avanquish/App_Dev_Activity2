@@ -10,23 +10,25 @@
 
             <form asp-controller="Account" asp-action="Registration" method="post">
                 <!-- Name Row -->
-                <div class="row mb-3">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="First name">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <input type="text" class="form-control" name="FirstName" placeholder="First name" required />
                     </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Last name">
+                    <div class="col-md-6 mb-3">
+                        <input type="text" class="form-control" name="LastName" placeholder="Last name" required />
                     </div>
                 </div>
 
                 <!-- Email -->
                 <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Mobile number or email">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" name="Email" placeholder="name@example.com" required />
                 </div>
 
                 <!-- Password -->
                 <div class="mb-3">
-                    <input type="password" class="form-control" placeholder="New password">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="Password" placeholder="Enter password" required />
                 </div>
 
                 <!-- Birthday -->

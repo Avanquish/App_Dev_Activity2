@@ -16,16 +16,26 @@ public class AccountController : Controller
     {
         return View();
     }
+    
+    public IActionResult Logins(string Email, string Password)
+    {
+        if (string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password))
+        {
+            ModelState.AddModelError("", "Email and Password are required.");
+            return View();
+        }
+        return RedirectToAction("Index", "Home");
+    }
 
     public IActionResult Register()
-    {  
+    {
         return View();
     }
 
     public IActionResult Registration()
     {
         TempData["SuccessMessage"] = "Registration Successful. Please log in.";
-        
+
         return RedirectToAction("Login");
     }
 
