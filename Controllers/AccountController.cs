@@ -12,6 +12,16 @@ public class AccountController : Controller
     {
         _logger = logger;
     }
+
+    public IActionResult Index()
+    {
+        return View();
+    }
+
+    public IActionResult Inventory()
+    {
+        return View();
+    }
     public IActionResult Login()
     {
         return View();
@@ -24,6 +34,8 @@ public class AccountController : Controller
             ModelState.AddModelError("", "Email and Password are required.");
             return View();
         }
+
+        HttpContext.Session.SetString("IsLoggedIn", "true");
         return RedirectToAction("Index", "Home");
     }
 
@@ -38,6 +50,14 @@ public class AccountController : Controller
 
         return RedirectToAction("Login");
     }
+
+    public IActionResult Logout()
+    {
+        HttpContext.Session.Clear();
+
+        return RedirectToAction("Login", "Account");
+    }
+
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
