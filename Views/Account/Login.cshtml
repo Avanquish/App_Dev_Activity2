@@ -1,5 +1,11 @@
 @{
     ViewData["Title"] = "Login Page";
+    @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success text-center">
+                @TempData["SuccessMessage"]
+            </div>
+        }
 }
 
 <div class="container">

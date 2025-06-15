@@ -22,6 +22,13 @@ public class AccountController : Controller
         return View();
     }
 
+    public IActionResult Registration()
+    {
+        TempData["SuccessMessage"] = "Registration Successful. Please log in.";
+        
+        return RedirectToAction("Login");
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
